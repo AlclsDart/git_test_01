@@ -19,7 +19,7 @@ permissions:
 jobs:
   deploy:
     name: Deploy
-    runs-on: Amazon Linux
+    runs-on: ubuntu-latest
     environment: production
 
     steps:
