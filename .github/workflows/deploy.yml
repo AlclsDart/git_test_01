@@ -19,7 +19,7 @@ permissions:
 jobs:
   deploy:
     name: Deploy
-    runs-on: self-hosted
+    runs-on: Amazon Linux
     environment: production
 
     steps:
