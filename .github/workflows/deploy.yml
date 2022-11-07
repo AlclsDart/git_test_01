@@ -19,7 +19,7 @@ permissions:
 jobs:
   deploy:
     name: Deploy
-    runs-on: arn:aws:ec2:ap-northeast-2:579999355468:instance/i-0ee9995385dc8dd81
+    runs-on: self-hosted
     environment: production
 
     steps:
