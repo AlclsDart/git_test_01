@@ -61,6 +61,10 @@ tasks.getByName<Jar>("jar") {
 }
 
 //jar 네임 settings.gradle.kts 파일내에 rootProject.name = "test01" 정의된 이름 사용
-tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+tasks.named<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
 	this.archiveFileName.set("${archiveBaseName.get()}.${archiveExtension.get()}")
+
+	from("../.ebextensions") {
+		into(".ebextensions")
+	}
 }
