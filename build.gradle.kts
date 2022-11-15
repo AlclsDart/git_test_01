@@ -48,7 +48,7 @@ allOpen { // 추가적으로 열어줄 allOpen
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "17"
+		jvmTarget = "11"
 	}
 }
 
@@ -58,4 +58,9 @@ tasks.withType<Test> {
 
 tasks.getByName<Jar>("jar") {
 	enabled = false
+}
+
+//jar 네임 settings.gradle.kts 파일내에 rootProject.name = "test01" 정의된 이름 사용
+tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+	this.archiveFileName.set("${archiveBaseName.get()}.${archiveExtension.get()}")
 }
