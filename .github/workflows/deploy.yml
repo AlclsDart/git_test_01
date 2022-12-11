@@ -69,8 +69,7 @@ jobs:
 
       # (7) Beanstalk Deploy 플러그인 사용
       - name: Beanstalk Deploy
-        #uses: einaregilsson/beanstalk-deploy@v21
-        uses: AlclsDart/git_test_01@v1
+        uses: einaregilsson/beanstalk-deploy@v21
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }} # github secrets로 등록한 값 사용
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # github secrets로 등록한 값 사용
@@ -78,6 +77,5 @@ jobs:
           environment_name: ${{ env.  CODE_DEPLOY_ENVIRONMENT_NAME }} # EB environment 이름
           version_label: Github Action-${{steps.current-time.outputs.formattedTime}} # 배포 버전은 타임스탬프를 이용하여 구분
           region: ${{ env.AWS_REGION }}
-          #deployment_package: deploy/deploy.zip
-          deployment_package: elasticbeanstalk/docker-compose.yml
+          deployment_package: deploy/deploy.zip
           wait_for_environment_recovery: 60 # default wait time은 30초이며, 필자의 EB가 느려서 180초로 지정했습니다(지정 안하면 간혹 timeout 발생).
