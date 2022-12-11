@@ -11,8 +11,8 @@ on:
 env:
   AWS_REGION: ap-northeast-2
   S3_BUCKET_NAME: alclsdart-github-s3-bucket
-  CODE_DEPLOY_APPLICATION_NAME: my-codedeploy-app01
-  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: my-codedeploy-deployment-group
+  CODE_DEPLOY_APPLICATION_NAME: Lunch
+  CODE_DEPLOY_ENVIRONMENT_NAME: Lunch-env
 
 permissions:
   contents: read
@@ -74,7 +74,7 @@ jobs:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }} # github secrets로 등록한 값 사용
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # github secrets로 등록한 값 사용
           application_name:  ${{ env.CODE_DEPLOY_APPLICATION_NAME }} # EB application 이름
-          environment_name: ${{ env.  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME }} # EB environment 이름
+          environment_name: ${{ env.  CODE_DEPLOY_ENVIRONMENT_NAME }} # EB environment 이름
           version_label: Github Action-${{steps.current-time.outputs.formattedTime}} # 배포 버전은 타임스탬프를 이용하여 구분
           region: ${{ env.AWS_REGION }}
           deployment_package: deploy/deploy.zip
