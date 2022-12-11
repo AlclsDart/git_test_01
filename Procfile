@@ -1,1 +1,1 @@
-web: java -Dfile.encoding=UTF-8 -Xms2g -Xmx2g -jar test01.jar
+web: java -Dfile.encoding=UTF-8 -Xms256m -Xmx512m -jar application.jar
