@@ -30,7 +30,7 @@ class HtmlController {
     fun index(model: Model) : String{
 
         println("start Index Method")
-        model.addAttribute("title", "Home JSC")
+        model.addAttribute("title", "Home")
         return "index"
     }
     fun crypto(ss: String):String{
